@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: './sample-test-app/server/package-lock.json'
+          cache-dependency-path: './server/package-lock.json'
       - run: |
           cd sample-test-app/client
           npm i
