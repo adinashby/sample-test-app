@@ -10,18 +10,20 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    
     strategy:
         matrix:
-          node-version: [20.x]
+          node-version: [20.7.0]
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-          cache-dependency-path: './server/package-lock.json'
+          #cache: 'npm'
+          #cache-dependency-path: 'server/package-lock.json'
       - run: |
-          cd sample-test-app/client
+          cd client
           npm i
           npm run build
           cd ..
