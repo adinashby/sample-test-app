@@ -8,7 +8,7 @@ const buildPath = path.join(_dirname, "../client/build");
 app.use(express.static(buildPath));
 
 app.get("/api", (req, res) => {
-  res.json({ users: ["user1", "user2", "user3"] });
+  res.json({ users: ["user1", "user2", "user3", "user4"] });
 });
 
 app.get("/", (req, res) => {
