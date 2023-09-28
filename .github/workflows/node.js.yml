@@ -34,4 +34,4 @@ jobs:
     - run: |
         cd server
         npm install
-    #- run: pm2 restart ServerAPI
+    - run: pm2 restart ServerAPI
