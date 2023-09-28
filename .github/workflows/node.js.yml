@@ -28,9 +28,9 @@ jobs:
         cache: 'npm'
         cache-dependency-path: client/package-lock.json
     - run: cd client
-    - run: npm ci
+    - run: npm install
     - run: npm run build
     - run: cd ..
     - run: cd server
-    - run: npm ci
+    - run: npm install
     #- run: pm2 restart ServerAPI
