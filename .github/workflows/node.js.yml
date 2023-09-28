@@ -5,29 +5,28 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-        cache-dependency-path: client/package-lock.json
-    - run: |
-        cd client
-        npm install
-        npm run build
-    - run: |
-        cd server
-        npm install
-    - run: |
-        cd server
-        pm2 start app.js --name=ServerAPI
-    #- run: pm2 restart ServerAPI
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: client/package-lock.json
+      - run: |
+          cd client
+          npm install
+          npm run build
+      - run: |
+          cd server
+          npm install
+      #- run: |
+      #    cd server
+      #    pm2 start app.js --name=ServerAPI
+      - run: pm2 restart ServerAPI
