@@ -27,10 +27,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: client/package-lock.json
-    - run: cd client
-    - run: npm install
-    - run: npm run build
-    - run: cd ..
-    - run: cd server
-    - run: npm install
+    - run: |
+        cd client
+        npm install
+        npm run build
+    - run: |
+        cd server
+        npm install
     #- run: pm2 restart ServerAPI
